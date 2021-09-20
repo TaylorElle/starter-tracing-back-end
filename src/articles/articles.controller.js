@@ -21,6 +21,7 @@ function dataHas(propertyName) {
     const value = data[propertyName];
     if (value) {
       req.log.trace({ __filename, methodName, valid: true });
+      return next();
     }
     const message = `Article must include a ${propertyName}`;
     next({ status: 400, message: message });
